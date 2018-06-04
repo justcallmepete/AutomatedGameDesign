@@ -1,15 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class BoardCreator : MonoBehaviour
 {
 	public int boardRows, boardColumns;
 	public int minRoomSize, maxRoomSize;
-
+    
 	public GameObject floorTile;
 	public GameObject corridorTile;
-	private GameObject[,] boardPositionsFloor;
+    public GameObject wallTile;
+    public GameObject waterTile;
+
+    public GameObject player;
+    public List<SubDungeon> subdungeons = new List<SubDungeon>();
+
+    private GameObject[,] boardPositionsFloor;
+
 
 	public void DrawRooms(SubDungeon subDungeon)
 	{
@@ -17,19 +28,77 @@ public class BoardCreator : MonoBehaviour
 		{
 			return;
 		}
-		if (subDungeon.IAmLeaf())
-		{
-			for (int i = (int)subDungeon.room.x; i < subDungeon.room.xMax; i++)
-			{
-				for (int j = (int)subDungeon.room.y; j < subDungeon.room.yMax; j++)
-				{
-					GameObject instance = Instantiate(floorTile, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
-					instance.transform.SetParent(transform);
-					boardPositionsFloor[i, j] = instance;
-				}
-			}
-		}
-		else
+
+	    if (subDungeon.IAmLeaf())
+	    {
+	        subdungeons.Add(subDungeon);
+	        for (int i = (int) subDungeon.room.x; i < subDungeon.room.xMax; i++)
+	        {
+	            for (int j = (int) subDungeon.room.y; j < subDungeon.room.yMax; j++)
+	            {
+	                if (boardPositionsFloor[i, j] == null)
+	                {
+	                    GameObject instance =
+	                        Instantiate(floorTile, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
+	                    instance.transform.SetParent(transform);
+	                    boardPositionsFloor[i, j] = instance;
+	                }
+
+	                // subDungeon.corridors.Remove(Rect[i,j]);
+	            }
+	        }
+
+            for (int i = (int)subDungeon.room.x; i < subDungeon.room.xMax; i++)
+            {
+                int test = (int)subDungeon.room.yMin;
+                    GameObject wall =
+                        Instantiate(wallTile, new Vector3(i, test, 0f), Quaternion.identity) as GameObject;
+                    wall.transform.SetParent(transform);
+                    boardPositionsFloor[i, test] = wall;
+            }
+
+            for (int i = (int)subDungeon.room.x; i <= subDungeon.room.xMax; i++)
+            {
+                int test = (int)subDungeon.room.yMax;
+                    GameObject wall =
+                        Instantiate(wallTile, new Vector3(i, test, 0f), Quaternion.identity) as GameObject;
+                    wall.transform.SetParent(transform);
+                    boardPositionsFloor[i, test] = wall;
+            }
+
+            for (int i = (int)subDungeon.room.y; i < subDungeon.room.yMax; i++)
+            {
+                int test = (int)subDungeon.room.xMin;
+                GameObject wall = Instantiate(wallTile, new Vector3(test, i, 0f), Quaternion.identity) as GameObject;
+                wall.transform.SetParent(transform);
+                boardPositionsFloor[test, i] = wall;
+            }
+
+            for (int i = (int)subDungeon.room.y; i < subDungeon.room.yMax; i++)
+            {
+                int test = (int)subDungeon.room.xMax;
+                GameObject wall = Instantiate(wallTile, new Vector3(test, i, 0f), Quaternion.identity) as GameObject;
+                wall.transform.SetParent(transform);
+                boardPositionsFloor[test, i] = wall;
+            }
+
+            //// turn wall part that collides with corridor back into a normal ground tile
+            //for (int i = (int) subDungeon.room.xMin -1; i <= subDungeon.room.xMax; i++)
+            //{
+            //    for (int j = (int) subDungeon.room.yMin -1; j <= subDungeon.room.yMax; j++)
+            //    {
+            //        if (boardPositionsFloor[i, j] != null && boardPositionsFloor[i, j].tag == "Corridor")
+            //        {
+            //               Debug.LogError("FOUND ONE");
+            //            GameObject instance = Instantiate(floorTile, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
+            //            instance.transform.SetParent(transform);
+            //            boardPositionsFloor[i+1, j-1] = instance;
+            //        }
+            //    }
+            //}
+
+        }
+	    else
 		{
 			DrawRooms(subDungeon.left);
 			DrawRooms(subDungeon.right);
@@ -53,8 +122,15 @@ public class BoardCreator : MonoBehaviour
 			{
 				for (int j = (int)corridor.y; j < corridor.yMax; j++)
 				{
-					if (boardPositionsFloor[i, j] == null)
+					if (boardPositionsFloor[i, j] == null || boardPositionsFloor[i,j].tag == wallTile.tag)
 					{
+					    if (boardPositionsFloor[i, j] != null && boardPositionsFloor[i, j].tag == wallTile.tag)
+					    {
+                            if (boardPositionsFloor[i, j].GetComponent<Collider2D>())
+                            {
+                                Destroy(boardPositionsFloor[i, j].GetComponent<Collider2D>());
+                            }
+                        }
 						GameObject instance = Instantiate(corridorTile, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
 						instance.transform.SetParent(transform);
 						boardPositionsFloor[i, j] = instance;
@@ -64,6 +140,7 @@ public class BoardCreator : MonoBehaviour
 		}
 	}
 
+    [Serializable]
 	public class SubDungeon
 	{
 		public SubDungeon left, right;
@@ -71,6 +148,8 @@ public class BoardCreator : MonoBehaviour
 		public Rect room = new Rect(-1, -1, 0, 0); // i.e null
 		public int debugId;
 		public List<Rect> corridors = new List<Rect>();
+	    public Vector2 sLPoint;
+	    public Vector2 sRPoint;
 
 		private static int debugCounter = 0;
 
@@ -101,88 +180,89 @@ public class BoardCreator : MonoBehaviour
 			return new Rect(-1, -1, 0, 0);
 		}
 
-		public void CreateCorridorBetween(SubDungeon left, SubDungeon right)
-		{
-			Rect lroom = left.GetRoom();
-			Rect rroom = right.GetRoom();
+        public void CreateCorridorBetween(SubDungeon left, SubDungeon right)
+        {
+            Rect lroom = left.GetRoom();
+            Rect rroom = right.GetRoom();
 
-			Debug.Log("Creating corridor(s) between " + left.debugId + "(" + lroom + ") and " + right.debugId + " (" + rroom + ")");
+            Debug.Log("Creating corridor(s) between " + left.debugId + "(" + lroom + ") and " + right.debugId + " (" + rroom + ")");
 
-			// attach the corridor to a random point in each room
-			Vector2 lpoint = new Vector2((int)Random.Range(lroom.x + 1, lroom.xMax - 1), (int)Random.Range(lroom.y + 1, lroom.yMax - 1));
-			Vector2 rpoint = new Vector2((int)Random.Range(rroom.x + 1, rroom.xMax - 1), (int)Random.Range(rroom.y + 1, rroom.yMax - 1));
+            // attach the corridor to a random point in each room
+            Vector2 lpoint = new Vector2((int)Random.Range(lroom.x + 2, lroom.xMax - 2), (int)Random.Range(lroom.y + 2, lroom.yMax - 2));
+            Vector2 rpoint = new Vector2((int)Random.Range(rroom.x + 2, rroom.xMax - 2), (int)Random.Range(rroom.y + 2, rroom.yMax - 2));
+            left.sLPoint = lpoint;
+            right.sRPoint = rpoint;
+            // always be sure that left point is on the left to simplify the code
+            if (lpoint.x > rpoint.x)
+            {
+                Vector2 temp = lpoint;
+                lpoint = rpoint;
+                rpoint = temp;
+            }
 
-			// always be sure that left point is on the left to simplify the code
-			if (lpoint.x > rpoint.x)
-			{
-				Vector2 temp = lpoint;
-				lpoint = rpoint;
-				rpoint = temp;
-			}
+            int w = (int)(lpoint.x - rpoint.x);
+            int h = (int)(lpoint.y - rpoint.y);
 
-			int w = (int)(lpoint.x - rpoint.x);
-			int h = (int)(lpoint.y - rpoint.y);
+            Debug.Log("lpoint: " + lpoint + ", rpoint: " + rpoint + ", w: " + w + ", h: " + h);
 
-			Debug.Log("lpoint: " + lpoint + ", rpoint: " + rpoint + ", w: " + w + ", h: " + h);
+            // if the points are not aligned horizontally
+            if (w != 0)
+            {
+                // choose at random to go horizontal then vertical or the opposite
+                if (Random.Range(0, 1) > 2)
+                {
+                    // add a corridor to the right
+                    corridors.Add(new Rect(lpoint.x, lpoint.y, Mathf.Abs(w) + 1, 1));
 
-			// if the points are not aligned horizontally
-			if (w != 0)
-			{
-				// choose at random to go horizontal then vertical or the opposite
-				if (Random.Range(0, 1) > 2)
-				{
-					// add a corridor to the right
-					corridors.Add(new Rect(lpoint.x, lpoint.y, Mathf.Abs(w) + 1, 1));
+                    // if left point is below right point go up
+                    // otherwise go down
+                    if (h < 0)
+                    {
+                        corridors.Add(new Rect(rpoint.x, lpoint.y, 1, Mathf.Abs(h)));
+                    }
+                    else
+                    {
+                        corridors.Add(new Rect(rpoint.x, lpoint.y, 1, -Mathf.Abs(h)));
+                    }
+                }
+                else
+                {
+                    // go up or down
+                    if (h < 0)
+                    {
+                        corridors.Add(new Rect(lpoint.x, lpoint.y, 1, Mathf.Abs(h)));
+                    }
+                    else
+                    {
+                        corridors.Add(new Rect(lpoint.x, rpoint.y, 1, Mathf.Abs(h)));
+                    }
 
-					// if left point is below right point go up
-					// otherwise go down
-					if (h < 0)
-					{
-						corridors.Add(new Rect(rpoint.x, lpoint.y, 1, Mathf.Abs(h)));
-					}
-					else
-					{
-						corridors.Add(new Rect(rpoint.x, lpoint.y, 1, -Mathf.Abs(h)));
-					}
-				}
-				else
-				{
-					// go up or down
-					if (h < 0)
-					{
-						corridors.Add(new Rect(lpoint.x, lpoint.y, 1, Mathf.Abs(h)));
-					}
-					else
-					{
-						corridors.Add(new Rect(lpoint.x, rpoint.y, 1, Mathf.Abs(h)));
-					}
+                    // then go right
+                    corridors.Add(new Rect(lpoint.x, rpoint.y, Mathf.Abs(w) + 1, 1));
+                }
+            }
+            else
+            {
+                // if the points are aligned horizontally
+                // go up or down depending on the positions
+                if (h < 0)
+                {
+                    corridors.Add(new Rect((int)lpoint.x, (int)lpoint.y, 1, Mathf.Abs(h)));
+                }
+                else
+                {
+                    corridors.Add(new Rect((int)rpoint.x, (int)rpoint.y, 1, Mathf.Abs(h)));
+                }
+            }
 
-					// then go right
-					corridors.Add(new Rect(lpoint.x, rpoint.y, Mathf.Abs(w) + 1, 1));
-				}
-			}
-			else
-			{
-				// if the points are aligned horizontally
-				// go up or down depending on the positions
-				if (h < 0)
-				{
-					corridors.Add(new Rect((int)lpoint.x, (int)lpoint.y, 1, Mathf.Abs(h)));
-				}
-				else
-				{
-					corridors.Add(new Rect((int)rpoint.x, (int)rpoint.y, 1, Mathf.Abs(h)));
-				}
-			}
+            Debug.Log("Corridors: ");
+            foreach (Rect corridor in corridors)
+            {
+                Debug.Log("corridor: " + corridor);
+            }
+        }
 
-			Debug.Log("Corridors: ");
-			foreach (Rect corridor in corridors)
-			{
-				Debug.Log("corridor: " + corridor);
-			}
-		}
-
-		public void CreateRoom()
+        public void CreateRoom()
 		{
 			if (left != null)
 			{
@@ -299,16 +379,45 @@ public class BoardCreator : MonoBehaviour
 		}
 	}
 
+    public void FillLevel(SubDungeon root)
+    {
+        for (int i = 0; i < boardRows; i++)
+        {
+            for (int j = 0; j < boardColumns; j++)
+            {
+                if (boardPositionsFloor[i, j] == null)
+                {
+                    GameObject instance = Instantiate(waterTile, new Vector3(i, j, 0f), Quaternion.identity) as GameObject;
+                    instance.transform.SetParent(transform);
+                    boardPositionsFloor[i, j] = instance;
+                }
+            }
+        }
+    }
+
+   void SpawnPlayer()
+   {
+       Vector2 roomStart = subdungeons[0].room.center;
+       GameObject Playah = Instantiate(player, new Vector3(roomStart.x, roomStart.y, -.01f), Quaternion.identity) as GameObject;
+   }
+
 	void Start()
 	{
-		SubDungeon rootSubDungeon = new SubDungeon(new Rect(0, 0, boardRows, boardColumns));
-		CreateBSP(rootSubDungeon);
-		rootSubDungeon.CreateRoom();
-
-		boardPositionsFloor = new GameObject[boardRows, boardColumns];
-	
-		DrawRooms(rootSubDungeon);
-		DrawCorridors(rootSubDungeon);
+	    StartCoroutine(coroutine());
 	}
+
+    IEnumerator coroutine()
+    {
+        SubDungeon rootSubDungeon = new SubDungeon(new Rect(0, 0, boardRows, boardColumns));
+        CreateBSP(rootSubDungeon);
+        rootSubDungeon.CreateRoom();
+        boardPositionsFloor = new GameObject[boardRows, boardColumns];
+        yield return new WaitForSeconds(.5f);
+        DrawRooms(rootSubDungeon);
+        DrawCorridors(rootSubDungeon);
+        //fill rest of level with walls
+        FillLevel(rootSubDungeon);
+        SpawnPlayer();
+    }
 }
 

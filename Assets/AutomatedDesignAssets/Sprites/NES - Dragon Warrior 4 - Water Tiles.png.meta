@@ -1,0 +1,1403 @@
+fileFormatVersion: 2
+guid: f4033d88b5823894284e476590932a9b
+timeCreated: 1528038056
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NES - Dragon Warrior 4 - Water Tiles_0
+    21300002: NES - Dragon Warrior 4 - Water Tiles_1
+    21300004: NES - Dragon Warrior 4 - Water Tiles_2
+    21300006: NES - Dragon Warrior 4 - Water Tiles_3
+    21300008: NES - Dragon Warrior 4 - Water Tiles_4
+    21300010: NES - Dragon Warrior 4 - Water Tiles_5
+    21300012: NES - Dragon Warrior 4 - Water Tiles_6
+    21300014: NES - Dragon Warrior 4 - Water Tiles_7
+    21300016: NES - Dragon Warrior 4 - Water Tiles_8
+    21300018: NES - Dragon Warrior 4 - Water Tiles_9
+    21300020: NES - Dragon Warrior 4 - Water Tiles_10
+    21300022: NES - Dragon Warrior 4 - Water Tiles_11
+    21300024: NES - Dragon Warrior 4 - Water Tiles_12
+    21300026: NES - Dragon Warrior 4 - Water Tiles_13
+    21300028: NES - Dragon Warrior 4 - Water Tiles_14
+    21300030: NES - Dragon Warrior 4 - Water Tiles_15
+    21300032: NES - Dragon Warrior 4 - Water Tiles_16
+    21300034: NES - Dragon Warrior 4 - Water Tiles_17
+    21300036: NES - Dragon Warrior 4 - Water Tiles_18
+    21300038: NES - Dragon Warrior 4 - Water Tiles_19
+    21300040: NES - Dragon Warrior 4 - Water Tiles_20
+    21300042: NES - Dragon Warrior 4 - Water Tiles_21
+    21300044: NES - Dragon Warrior 4 - Water Tiles_22
+    21300046: NES - Dragon Warrior 4 - Water Tiles_23
+    21300048: NES - Dragon Warrior 4 - Water Tiles_24
+    21300050: NES - Dragon Warrior 4 - Water Tiles_25
+    21300052: NES - Dragon Warrior 4 - Water Tiles_26
+    21300054: NES - Dragon Warrior 4 - Water Tiles_27
+    21300056: NES - Dragon Warrior 4 - Water Tiles_28
+    21300058: NES - Dragon Warrior 4 - Water Tiles_29
+    21300060: NES - Dragon Warrior 4 - Water Tiles_30
+    21300062: NES - Dragon Warrior 4 - Water Tiles_31
+    21300064: NES - Dragon Warrior 4 - Water Tiles_32
+    21300066: NES - Dragon Warrior 4 - Water Tiles_33
+    21300068: NES - Dragon Warrior 4 - Water Tiles_34
+    21300070: NES - Dragon Warrior 4 - Water Tiles_35
+    21300072: NES - Dragon Warrior 4 - Water Tiles_36
+    21300074: NES - Dragon Warrior 4 - Water Tiles_37
+    21300076: NES - Dragon Warrior 4 - Water Tiles_38
+    21300078: NES - Dragon Warrior 4 - Water Tiles_39
+    21300080: NES - Dragon Warrior 4 - Water Tiles_40
+    21300082: NES - Dragon Warrior 4 - Water Tiles_41
+    21300084: NES - Dragon Warrior 4 - Water Tiles_42
+    21300086: NES - Dragon Warrior 4 - Water Tiles_43
+    21300088: NES - Dragon Warrior 4 - Water Tiles_44
+    21300090: NES - Dragon Warrior 4 - Water Tiles_45
+    21300092: NES - Dragon Warrior 4 - Water Tiles_46
+    21300094: NES - Dragon Warrior 4 - Water Tiles_47
+    21300096: NES - Dragon Warrior 4 - Water Tiles_48
+    21300098: NES - Dragon Warrior 4 - Water Tiles_49
+    21300100: NES - Dragon Warrior 4 - Water Tiles_50
+    21300102: NES - Dragon Warrior 4 - Water Tiles_51
+    21300104: NES - Dragon Warrior 4 - Water Tiles_52
+    21300106: NES - Dragon Warrior 4 - Water Tiles_53
+    21300108: NES - Dragon Warrior 4 - Water Tiles_54
+    21300110: NES - Dragon Warrior 4 - Water Tiles_55
+    21300112: NES - Dragon Warrior 4 - Water Tiles_56
+    21300114: NES - Dragon Warrior 4 - Water Tiles_57
+    21300116: NES - Dragon Warrior 4 - Water Tiles_58
+    21300118: NES - Dragon Warrior 4 - Water Tiles_59
+    21300120: NES - Dragon Warrior 4 - Water Tiles_60
+    21300122: NES - Dragon Warrior 4 - Water Tiles_61
+    21300124: NES - Dragon Warrior 4 - Water Tiles_62
+    21300126: NES - Dragon Warrior 4 - Water Tiles_63
+    21300128: NES - Dragon Warrior 4 - Water Tiles_64
+    21300130: NES - Dragon Warrior 4 - Water Tiles_65
+    21300132: NES - Dragon Warrior 4 - Water Tiles_66
+    21300134: NES - Dragon Warrior 4 - Water Tiles_67
+    21300136: NES - Dragon Warrior 4 - Water Tiles_68
+    21300138: NES - Dragon Warrior 4 - Water Tiles_69
+    21300140: NES - Dragon Warrior 4 - Water Tiles_70
+    21300142: NES - Dragon Warrior 4 - Water Tiles_71
+    21300144: NES - Dragon Warrior 4 - Water Tiles_72
+    21300146: NES - Dragon Warrior 4 - Water Tiles_73
+    21300148: NES - Dragon Warrior 4 - Water Tiles_74
+    21300150: NES - Dragon Warrior 4 - Water Tiles_75
+    21300152: NES - Dragon Warrior 4 - Water Tiles_76
+    21300154: NES - Dragon Warrior 4 - Water Tiles_77
+    21300156: NES - Dragon Warrior 4 - Water Tiles_78
+    21300158: NES - Dragon Warrior 4 - Water Tiles_79
+    21300160: NES - Dragon Warrior 4 - Water Tiles_80
+    21300162: NES - Dragon Warrior 4 - Water Tiles_81
+    21300164: NES - Dragon Warrior 4 - Water Tiles_82
+    21300166: NES - Dragon Warrior 4 - Water Tiles_83
+    21300168: NES - Dragon Warrior 4 - Water Tiles_84
+    21300170: NES - Dragon Warrior 4 - Water Tiles_85
+    21300172: NES - Dragon Warrior 4 - Water Tiles_86
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 158
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_11
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 126
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_32
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_33
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_34
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_35
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_36
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_37
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_38
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 110
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_39
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_40
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_41
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_42
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_43
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_44
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_45
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_46
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_47
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_48
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 94
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_49
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_50
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_51
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_52
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_53
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_54
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_55
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 78
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_56
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_57
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_58
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_59
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_60
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 62
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_61
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_62
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_63
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_64
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_65
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_66
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_67
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_68
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_69
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_70
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 46
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_71
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_72
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_73
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_74
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_75
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_76
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_77
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_78
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 30
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_79
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_80
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_81
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_82
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_83
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_84
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_85
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dragon Warrior 4 - Water Tiles_86
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 14
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
