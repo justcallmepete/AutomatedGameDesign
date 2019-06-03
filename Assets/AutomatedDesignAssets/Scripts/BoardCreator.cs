@@ -18,7 +18,7 @@ public class BoardCreator : MonoBehaviour
 
     public GameObject player;
     public List<SubDungeon> subdungeons = new List<SubDungeon>();
-
+	public SubDungeon rootSubDungeon;
     private GameObject[,] boardPositionsFloor;
 
 
@@ -361,9 +361,7 @@ public class BoardCreator : MonoBehaviour
 		if (subDungeon.IAmLeaf())
 		{
 			// if the sub-dungeon is too large
-			if (subDungeon.rect.width > maxRoomSize
-			  || subDungeon.rect.height > maxRoomSize
-			  || Random.Range(0.0f, 1.0f) > 0.25)
+			if (subDungeon.rect.width > maxRoomSize || subDungeon.rect.height > maxRoomSize  || Random.Range(0.0f, 1.0f) > 0.25)
 			{
 
 				if (subDungeon.Split(minRoomSize, maxRoomSize))
@@ -408,14 +406,16 @@ public class BoardCreator : MonoBehaviour
 
     IEnumerator coroutine()
     {
-        SubDungeon rootSubDungeon = new SubDungeon(new Rect(0, 0, boardRows, boardColumns));
+        rootSubDungeon = new SubDungeon(new Rect(0, 0, boardRows, boardColumns));
         CreateBSP(rootSubDungeon);
         rootSubDungeon.CreateRoom();
         boardPositionsFloor = new GameObject[boardRows, boardColumns];
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(2f);
         DrawRooms(rootSubDungeon);
+		yield return new WaitForSeconds(2f);
         DrawCorridors(rootSubDungeon);
         //fill rest of level with walls
+				yield return new WaitForSeconds(2f);
         FillLevel(rootSubDungeon);
         SpawnPlayer();
     }
