@@ -22,6 +22,7 @@ public class LevelGeneration : MonoBehaviour {
     public Transform startingPosition;
     private Vector3 lastRoomPos;
     public GameObject[] rooms; // 0 = LR, 1 = LRB, 2 = LRT, 3 = LRTB, 4 = Start, 5 = Boss
+    public GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -87,7 +88,7 @@ public class LevelGeneration : MonoBehaviour {
                 // Now I must replace the room BEFORE going down with a room that has a DOWN opening, so type 3 or 5
                 Collider2D previousRoom = Physics2D.OverlapCircle(transform.position, 1, room);
                 lastRoomPos = previousRoom.gameObject.transform.position;
-                Debug.Log(lastRoomPos);
+                Debug.Log(previousRoom);
                 if (previousRoom.GetComponent<RoomType>().type != 1 && previousRoom.GetComponent<RoomType>().type != 3) {
                     // My problem : if the level generation goes down TWICE in a row, there's a chance that the previous room is just 
                     // a LRB, meaning there's no TOP opening for the other room ! 
@@ -129,6 +130,7 @@ public class LevelGeneration : MonoBehaviour {
                     endRoom.transform.rotation = Quaternion.Euler(0, 0, -90);
                 }
                 stopGeneration = true;
+                Instantiate(player, startingPosition.transform.position, Quaternion.identity);
             }
 
         }
