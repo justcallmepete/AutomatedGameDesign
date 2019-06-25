@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SmoothFollowCam: MonoBehaviour
 {
-    Transform target;
+     Transform target;
     public float distance = -3.0f;
     public float height = 0f;
     public float damping = 5.0f;

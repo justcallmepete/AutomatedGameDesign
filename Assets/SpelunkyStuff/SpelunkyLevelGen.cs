@@ -28,14 +28,13 @@ public class SpelunkyLevelGen : MonoBehaviour {
     private bool isTesting = true;
 
     public GameObject spawnObject;
-
+public GameObject player;
     private void Start() {
         for(int i = 0; i < 4; i++){
             for (int j = 0; j< 4; j++){
                 possibleRooms[i,j] = -1;
             }
         }
-
          startPos = Random.Range(0, 3);
         DungeonRoom StartRoom = new DungeonRoom(RoomPositions[startPos].transform, startPos, currentY);
         ActualRooms.Add(StartRoom);
@@ -52,6 +51,8 @@ public class SpelunkyLevelGen : MonoBehaviour {
 
      //   StartRoom.SpawnRoom(spawnObject);
      StartCoroutine(CreateACoolDungeon());
+             SpawnPlayer(player);
+
     }
 
     void Update(){
@@ -346,6 +347,10 @@ public class SpelunkyLevelGen : MonoBehaviour {
         }
 
         //ToDO: non critical room - random openings and closed off borders
+    }
+    
+    private void SpawnPlayer(GameObject po){
+       Instantiate(po, ActualRooms[0].roomTransform.position,Quaternion.identity);
     }
 
     IEnumerator CreateACoolDungeon(){
