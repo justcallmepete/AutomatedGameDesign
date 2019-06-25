@@ -2,23 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonRoom {
-		
-	public	enum TypeOfRoom
+public	enum TypeOfRoom
 	{
-		StartEnd,
+		Start,
+		End,
 		Corridor,
 		DropIn,
 		DropOut,
 		NonCrit
 	}
+[System.Serializable]
+public class DungeonRoom {
+		
+	
+
+	public DungeonRoom(Transform trans, int x, int y){
+		roomTransform = trans;
+		xPos = x;
+		yPos = y;
+	}
+
+	public bool leftSide;
+	public bool rightSide;
+	public bool upSide;
+	public bool downSide;
 	
 	public Transform roomTransform;
+	public int xPos;
+	public int yPos;
 	public TypeOfRoom roomType;
 
-	public DungeonRoom(Transform trans){
-		roomTransform = trans;
-	}
+	
 
 	public void SpawnRoom(GameObject room){
 		// Spawn the corresponding type

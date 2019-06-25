@@ -24,6 +24,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
     public int moveDir;
 
     private bool isGenerating = true;
+    private bool isTesting = true;
 
     public GameObject spawnObject;
 
@@ -35,7 +36,9 @@ public class SpelunkyLevelGen : MonoBehaviour {
         }
 
          startPos = Random.Range(0, 3);
-        DungeonRoom StartRoom = new DungeonRoom(RoomPositions[startPos].transform);
+        DungeonRoom StartRoom = new DungeonRoom(RoomPositions[startPos].transform, startPos, currentY);
+        ActualRooms.Add(StartRoom);
+        ActualRooms[0].roomType = TypeOfRoom.Start;
         Instantiate(spawnObject, StartRoom.roomTransform); 
         
         boardPosition = new int[startPos, 0];
@@ -53,6 +56,10 @@ public class SpelunkyLevelGen : MonoBehaviour {
 
         if(isGenerating){
             GenerateNextPart();
+        } else {
+            if (isTesting){
+                DecideOnRoomType();
+            }
         }
     }
 
@@ -131,8 +138,9 @@ public class SpelunkyLevelGen : MonoBehaviour {
                     currentX = tempX;
                     currentY = tempY;
                     int roomnumber = currentX + (currentY *4);
-                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform);
+                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
+                     ActualRooms.Add(tempRoom);
                     Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                 } else {
@@ -157,8 +165,9 @@ public class SpelunkyLevelGen : MonoBehaviour {
                     currentX = tempX;
                     currentY = tempY;
                     int roomnumber = currentX + (currentY *4);
-                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform);
+                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
+                     ActualRooms.Add(tempRoom);
                     Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                 } else {
@@ -180,17 +189,91 @@ public class SpelunkyLevelGen : MonoBehaviour {
                     currentX = tempX;
                     currentY = tempY;
                     int roomnumber = currentX + (currentY *4);
-                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform);
+                     tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
                     Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
+                    ActualRooms.Add(tempRoom);
                 } else {
                     //end reached, put down end room
                     Debug.Log("End reached");
-                    lastSpawnedRoom.roomType = DungeonRoom.TypeOfRoom.StartEnd;
+                    lastSpawnedRoom.roomType = TypeOfRoom.End;
                     isGenerating = false;
                     //stop generating
                 }
     }
 
+    void DecideOnRoomType(){
+        // start room -> next room (left,right,down)
+        if(ActualRooms[1].yPos > ActualRooms[0].yPos){
+            // room is below it
+            ActualRooms[0].downSide = true;
+        } else
+        {
+            if(ActualRooms[1].xPos < ActualRooms[0].xPos){
+                // next room is on the left side
+                ActualRooms[0].leftSide = true;
+            }else {
+                // next room is on the right side
+                ActualRooms[0].rightSide = true;
+            }
+        }
+
+        for (int i = 1; i < ActualRooms.Count -1; i++){
+            if(ActualRooms[i-1].yPos < ActualRooms[i].yPos){
+                //if previous room is above it
+                ActualRooms[i].roomType = TypeOfRoom.DropIn;
+                ActualRooms[i].upSide = true;
+                if(ActualRooms[i+1].yPos > ActualRooms[i].yPos){
+                    // next room is below it
+                    ActualRooms[i].roomType = TypeOfRoom.DropOut;
+                ActualRooms[i].downSide = true;
+                } else
+                {
+                    if(ActualRooms[i+1].xPos < ActualRooms[i].xPos){
+                        // next room is on left side
+                        ActualRooms[i].leftSide = true;
+                    } else {
+                        // next room is right side
+                        ActualRooms[i].rightSide = true;
+                    }
+                }
+            } else if(ActualRooms[i-1].xPos < ActualRooms[i].xPos){
+                // if previous room is on left side
+                ActualRooms[i].roomType = TypeOfRoom.Corridor;
+                ActualRooms[i].leftSide = true;
+                if (ActualRooms[i+1].yPos > ActualRooms[i].yPos){
+                    // next room is below it
+                    ActualRooms[i].roomType = TypeOfRoom.DropOut;
+                    ActualRooms[i].downSide = true;
+                } else{
+                     if(ActualRooms[i+1].xPos < ActualRooms[i].xPos){
+                        // next room is on left side
+                        ActualRooms[i].leftSide = true;
+                    } else {
+                        // next room is right side
+                        ActualRooms[i].rightSide = true;
+                    }
+                }
+            } else if(ActualRooms[i-1].xPos > ActualRooms[i].xPos){
+                //if previous room is on right side
+                 ActualRooms[i].roomType = TypeOfRoom.Corridor;
+                ActualRooms[i].rightSide = true;
+                if (ActualRooms[i+1].yPos > ActualRooms[i].yPos){
+                    // next room is below it
+                    ActualRooms[i].roomType = TypeOfRoom.DropOut;
+                    ActualRooms[i].downSide = true;
+                } else{
+                     if(ActualRooms[i+1].xPos < ActualRooms[i].xPos){
+                        // next room is on left side
+                        ActualRooms[i].leftSide = true;
+                    } else {
+                        // next room is right side
+                        ActualRooms[i].rightSide = true;
+                    }
+            }
+            }
+        }
+        isTesting = false;
+    }
 } 
