@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpelunkyLevelGen : MonoBehaviour {
 
+    public float waitTime = 1f;
+    public RoomTypeManager roomTypeManager;
     public List<GameObject> RoomPositions = new List<GameObject>(); // maybe make room class?
-
     public List<DungeonRoom> ActualRooms = new List<DungeonRoom>();
+    public List<GameObject> spawnedRooms = new List<GameObject>();
 
-    public int[,] possibleRooms = new int[4,4];
+    private int[,] possibleRooms = new int[4,4];
     public int[,] boardPosition;
-    public Dictionary<int[,] , DungeonRoom > RoomDictionary = new Dictionary<int [,], DungeonRoom>();
     int currentX = 0;
     int currentY = 0;
 
@@ -39,7 +40,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
         DungeonRoom StartRoom = new DungeonRoom(RoomPositions[startPos].transform, startPos, currentY);
         ActualRooms.Add(StartRoom);
         ActualRooms[0].roomType = TypeOfRoom.Start;
-        Instantiate(spawnObject, StartRoom.roomTransform); 
+       // Instantiate(spawnObject, StartRoom.roomTransform); 
         
         boardPosition = new int[startPos, 0];
         currentX = startPos;
@@ -50,10 +51,11 @@ public class SpelunkyLevelGen : MonoBehaviour {
          
 
      //   StartRoom.SpawnRoom(spawnObject);
+     StartCoroutine(CreateACoolDungeon());
     }
 
     void Update(){
-
+        /*
         if(isGenerating){
             GenerateNextPart();
         } else {
@@ -61,6 +63,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
                 DecideOnRoomType();
             }
         }
+        */
     }
 
     private bool isMoveSafe(int x, int y){ // if move is within bounds and room is not taken
@@ -141,7 +144,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
                      tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
                      ActualRooms.Add(tempRoom);
-                    Instantiate(spawnObject, tempRoom.roomTransform); 
+                //    Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                 } else {
                     if(isLeftEdge(tempX, tempY)){
@@ -168,7 +171,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
                      tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
                      ActualRooms.Add(tempRoom);
-                    Instantiate(spawnObject, tempRoom.roomTransform); 
+                    //Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                 } else {
                     if(isRightEdge(tempX, tempY)){
@@ -191,7 +194,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
                     int roomnumber = currentX + (currentY *4);
                      tempRoom = new DungeonRoom(RoomPositions[roomnumber].transform, currentX, currentY);
                      possibleRooms[currentX, currentY] = 0;
-                    Instantiate(spawnObject, tempRoom.roomTransform); 
+                   // Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                     ActualRooms.Add(tempRoom);
                 } else {
@@ -203,7 +206,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
                 }
     }
 
-    void DecideOnRoomType(){
+    private void DecideOnRoomType(){
         // start room -> next room (left,right,down)
         if(ActualRooms[1].yPos > ActualRooms[0].yPos){
             // room is below it
@@ -276,4 +279,100 @@ public class SpelunkyLevelGen : MonoBehaviour {
         }
         isTesting = false;
     }
+
+    private void FillGridWithNonCriticalRooms(){
+        for(int i = 0; i < 4; i++){
+            for (int j = 0; j< 4; j++){
+                if(possibleRooms[i,j] == -1){
+                    int tempX = i;
+                    int tempY = j;
+                    int roomnumber = tempX + (tempY *4);
+                    DungeonRoom temp = new DungeonRoom(RoomPositions[roomnumber].transform, tempX, tempY);
+                    temp.roomType = TypeOfRoom.NonCrit;
+                    ActualRooms.Add(temp);
+                }
+            }
+        }
+    }
+
+    private void ActuallyCreateTheRooms(){
+            foreach (var item in ActualRooms)
+            {
+                Instantiate(spawnObject, item.roomTransform);
+                switch(item.roomType){
+                    case TypeOfRoom.Start:{
+                        
+                        break;
+                    }
+                    case TypeOfRoom.End:{
+                        
+                        break;
+                    }
+                    case TypeOfRoom.DropIn:{
+                        
+                        break;
+                    }
+                    case TypeOfRoom.DropOut:{
+                        
+                        break;
+                    }
+                    case TypeOfRoom.Corridor:{
+                        
+                        break;
+                    }
+                    case TypeOfRoom.NonCrit:{
+                        
+                        break;
+                    }
+                }
+            }
+    }
+
+        IEnumerator CreateTheDungeonRooms(){
+        GameObject prefab = null;
+         foreach (var item in ActualRooms)
+            {
+                yield return new WaitForSeconds(waitTime);
+                 prefab = roomTypeManager.GetRoom(item.roomType);
+                Instantiate(spawnObject, item.roomTransform);
+                spawnedRooms.Add(prefab);
+            } 
+    }
+
+    private void GenerateRandomChunksPerRoom(){
+        foreach (var item in spawnedRooms)
+        {
+           // item.GetComponent<INSERTROOMCHUNKGENERATIONHERE>();
+        }
+
+        //ToDO: non critical room - random openings and closed off borders
+    }
+
+    IEnumerator CreateACoolDungeon(){
+        while(isGenerating){
+            GenerateNextPart();
+            yield return new WaitForSeconds(waitTime);
+        }
+        
+        yield return new WaitForSeconds(waitTime);
+        DecideOnRoomType();
+        yield return new WaitForSeconds(waitTime);
+        // fill the rest of the level (non-critical-rooms)
+        FillGridWithNonCriticalRooms();
+        yield return new WaitForSeconds(waitTime);
+        //actually create the rooms
+       // ActuallyCreateTheRooms();
+        yield return StartCoroutine(CreateTheDungeonRooms());
+        yield return new WaitForSeconds(waitTime);
+        //generate random chunks and exits per room
+        GenerateRandomChunksPerRoom();
+        yield return new WaitForSeconds(waitTime);
+        //fill level with enemies
+        //ToDo: BILAL ADD YOUR ENEMY SPAWN STUFF HERE POR FAVOR
+        yield return new WaitForSeconds(waitTime);
+        //start with player in start room
+    }
+
+
+
 } 
