@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SmoothFollowCam: MonoBehaviour
 {
-     Transform target;
+    Transform target;
     public float distance = -3.0f;
     public float height = 0f;
     public float damping = 5.0f;
@@ -14,6 +14,9 @@ public class SmoothFollowCam: MonoBehaviour
         if(!target)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
+            if(target == null ){
+                return;
+            }
         }
 
         Vector3 wantedPosition;
@@ -21,4 +24,5 @@ public class SmoothFollowCam: MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
     }
+    
 }

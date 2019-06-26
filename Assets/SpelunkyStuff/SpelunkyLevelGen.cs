@@ -384,7 +384,7 @@ public GameObject player;
     }
     
     private void SpawnPlayer(GameObject po){
-//       Instantiate(po, ActualRooms[0].roomTransform.position,Quaternion.identity);
+       Instantiate(po, ActualRooms[0].roomTransform.position,Quaternion.identity);
     }
 
     IEnumerator CreateACoolDungeon(){
