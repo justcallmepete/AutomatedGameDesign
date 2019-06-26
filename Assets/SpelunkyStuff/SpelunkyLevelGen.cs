@@ -26,6 +26,7 @@ public class SpelunkyLevelGen : MonoBehaviour {
 
     private bool isGenerating = true;
     private bool isTesting = true;
+    public int lastGeneratedRoomNumber;
 
     public GameObject spawnObject;
 public GameObject player;
@@ -198,6 +199,7 @@ public GameObject player;
                    // Instantiate(spawnObject, tempRoom.roomTransform); 
                     lastSpawnedRoom = tempRoom;
                     ActualRooms.Add(tempRoom);
+                   
                 } else {
                     //end reached, put down end room
                     Debug.Log("End reached");
@@ -205,6 +207,7 @@ public GameObject player;
                     isGenerating = false;
                     //stop generating
                 }
+                 lastGeneratedRoomNumber = ActualRooms.Count;
     }
 
     private void DecideOnRoomType(){
@@ -278,7 +281,16 @@ public GameObject player;
             }
             }
         }
-        isTesting = false;
+
+        if(ActualRooms[lastGeneratedRoomNumber-1].yPos > ActualRooms[lastGeneratedRoomNumber-2].yPos){
+            ActualRooms[lastGeneratedRoomNumber-1].upSide = true;
+        }else {
+            if(ActualRooms[lastGeneratedRoomNumber-1].xPos < ActualRooms[lastGeneratedRoomNumber-2].xPos){
+                ActualRooms[lastGeneratedRoomNumber-1].leftSide = true;
+            }else{
+                ActualRooms[lastGeneratedRoomNumber-1].rightSide = true;
+            }
+        }
     }
 
     private void FillGridWithNonCriticalRooms(){
@@ -330,20 +342,25 @@ public GameObject player;
     }
 
         IEnumerator CreateTheDungeonRooms(){
-        GameObject prefab = null;
+        
          foreach (var item in ActualRooms)
             {
+                GameObject prefab = null;
                 yield return new WaitForSeconds(waitTime);
                  prefab = roomTypeManager.GetRoom(item.roomType);
-                Instantiate(spawnObject, item.roomTransform);
-                spawnedRooms.Add(prefab);
+               GameObject spawnedThing = Instantiate(spawnObject, item.roomTransform);
+                spawnedRooms.Add(spawnedThing);
             } 
     }
 
     private void GenerateRandomChunksPerRoom(){
-        foreach (var item in spawnedRooms)
-        {
-           // item.GetComponent<INSERTROOMCHUNKGENERATIONHERE>();
+        for(int i = 0; i < ActualRooms.Count; i++){
+            ChunkGenerator room = spawnedRooms[i].GetComponent<ChunkGenerator>();
+         //   Debug.Log("booleans are: " +ActualRooms[i].leftSide+ActualRooms[i].rightSide+ActualRooms[i].upSide+ActualRooms[i].downSide);
+            room.setEntrances(ActualRooms[i].upSide, ActualRooms[i].downSide, ActualRooms[i].rightSide, ActualRooms[i].leftSide);
+           // room.spawnBottomEntrance = true;
+            room.SpawnEntrances();
+            room.SpawnChunks();
         }
 
         //ToDO: non critical room - random openings and closed off borders
