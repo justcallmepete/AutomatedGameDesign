@@ -25,12 +25,12 @@ public class EnemySpawner : MonoBehaviour
         maxEnemy = PlayerPrefs.GetInt("MaxEnemy");
         if(maxEnemy == 0)
         {
-            maxEnemy = 20;
+            maxEnemy = 100;
         }
         remaining = maxEnemy;
         
         foreach (GameObject en in Enemies)
-        {
+        {   en.GetComponent<Enemy>().BalanceSpawnRate(en.GetComponent<Enemy>().chanceOfSpawning);
             ahold = ahold + en.GetComponent<Enemy>().chanceOfSpawning / 100;
             percentage.Add(ahold);
         }

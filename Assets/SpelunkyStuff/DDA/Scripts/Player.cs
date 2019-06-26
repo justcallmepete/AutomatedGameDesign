@@ -12,24 +12,24 @@ public class Player : MonoBehaviour
     public int currentHp;
     public float runSpeed = 10.0f;
     public Camera cam;
-    public Image uicross;
+    //public Image uicross;
     public GameObject muzzleflash;
     bool pause = true;
     int layerMask;
     int attackdamage = 1;
     public Text playerhptex;
     void Start()
-    {   cam= Camera.main;
+    {   //cam= Camera.main;
         layerMask =~ LayerMask.GetMask("player");
         currentHp = PlayerPrefs.GetInt("CurrentHP");
         body = GetComponent<Rigidbody2D>();
-        Cursor.visible = false;
+        //Cursor.visible = false;
         cam= Camera.main;
     }
 
     void Update()
     {
-        uicross.transform.position = Input.mousePosition;
+        //uicross.transform.position = Input.mousePosition;
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
 

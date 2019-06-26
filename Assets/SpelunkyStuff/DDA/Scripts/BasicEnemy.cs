@@ -11,12 +11,16 @@ public class BasicEnemy : Enemy
     Rigidbody2D rb; 
     int attackDelay = 1;
     bool atcCD;
+     private void OnValidate() {
+                BalanceSpawnRate(chanceOfSpawning);
+
+    }
     void Awake()
     {
+        BalanceSpawnRate(chanceOfSpawning);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         detectRange *= detectRange;
-        BalanceSpawnRate(chanceOfSpawning);
     }
 
     void Update()
