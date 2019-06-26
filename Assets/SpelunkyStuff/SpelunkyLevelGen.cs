@@ -286,9 +286,9 @@ public GameObject player;
             ActualRooms[lastGeneratedRoomNumber-1].upSide = true;
         }else {
             if(ActualRooms[lastGeneratedRoomNumber-1].xPos < ActualRooms[lastGeneratedRoomNumber-2].xPos){
-                ActualRooms[lastGeneratedRoomNumber-1].leftSide = true;
-            }else{
                 ActualRooms[lastGeneratedRoomNumber-1].rightSide = true;
+            }else{
+                ActualRooms[lastGeneratedRoomNumber-1].leftSide = true;
             }
         }
     }
@@ -348,7 +348,8 @@ public GameObject player;
                 GameObject prefab = null;
                 yield return new WaitForSeconds(waitTime);
                  prefab = roomTypeManager.GetRoom(item.roomType);
-               GameObject spawnedThing = Instantiate(spawnObject, item.roomTransform);
+                 Debug.Log("Getting roomtype: "+ item.roomType);
+               GameObject spawnedThing = Instantiate(prefab, item.roomTransform);
                 spawnedRooms.Add(spawnedThing);
             } 
     }
