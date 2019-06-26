@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum EnemyDiff
+{
+    Baby,
+    Easy,
+    Medium,
+    Pain
+}
 public class EnemySpawner : MonoBehaviour
 {
 
     public List<GameObject> Enemies;
     public List<float> percentage;
     public GameObject[] spawnPoints;
+    public GameObject spawnChanceGO;
     int enemyCount;
     public int maxEnemy;
 
@@ -25,19 +32,18 @@ public class EnemySpawner : MonoBehaviour
         maxEnemy = PlayerPrefs.GetInt("MaxEnemy");
         if(maxEnemy == 0)
         {
-            maxEnemy = 100;
+            maxEnemy = 20;
         }
         remaining = maxEnemy;
         
-        foreach (GameObject en in Enemies)
-        {   en.GetComponent<Enemy>().BalanceSpawnRate(en.GetComponent<Enemy>().chanceOfSpawning);
-            ahold = ahold + en.GetComponent<Enemy>().chanceOfSpawning / 100;
+        foreach (float perc in spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances)
+        {   spawnChanceGO.GetComponent<SpawnChanceHolder>().BalanceSpawnRate();
+            ahold = ahold + perc / 100;
             percentage.Add(ahold);
         }
         SpawnEnemy();
-
     }
-
+   
     void SpawnEnemy()
     {
         int i = 0;
@@ -49,85 +55,86 @@ public class EnemySpawner : MonoBehaviour
                 if (Random.value < standardSpawnChance)
                 {
                     //enemy has been spawned decrease the chance of spawning the next one.
-                    ChooseEnemy(spawnPoints[i].transform);
+                    ChooseEnemy(spawnPoints[i].transform,spawnPoints[i].GetComponent<spawnEnemy>());
                     remaining--;
                     enemyCount++;
                 }
-
             }
             
             i++;
         }
         Debug.Log(enemyCount);
     }
-    void ChooseEnemy(Transform pos)
+    void ChooseEnemy(Transform pos,spawnEnemy enemyspawnerScript)
     {
         float a = Random.value;
 
         if (a < percentage[0])
         {
-            Instantiate(Enemies[0], pos.position, Quaternion.identity);
+            enemyspawnerScript.spawnNewEnemy(EnemyDiff.Baby,pos);
+            //Instantiate(Enemies[0], pos.position, Quaternion.identity);
            // Debug.Log("The enemy chance is 0");
         }
         else if (a < percentage[1])
         {
-            Instantiate(Enemies[1], pos.position, Quaternion.identity);
+            enemyspawnerScript.spawnNewEnemy(EnemyDiff.Easy,pos);
            // Debug.Log("The enemy chance is 1");
 
         }
         else if (a < percentage[2])
         {
-            Instantiate(Enemies[2], pos.position, Quaternion.identity);
+            enemyspawnerScript.spawnNewEnemy(EnemyDiff.Medium,pos);
             //Debug.Log("The enemy chance is 2");
 
         }
         else if (a < percentage[3])
         {
-            Instantiate(Enemies[3], pos.position, Quaternion.identity);
+            enemyspawnerScript.spawnNewEnemy(EnemyDiff.Pain,pos);
            // Debug.Log("The enemy chance is 3");
 
         }
     }
+    
     public void EnemySpawnRatesChanger(int ChangeRates)
     {
-        float dividedRate = downRate/ (Enemies.Count-1);
+        float dividedRate = downRate/ (spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances.Length-1);
         switch (ChangeRates)
         {
-            // more basic enemies
+            // baby
             case 1:
                 {
-                    Mathf.Round(Enemies[0].GetComponent<Enemy>().chanceOfSpawning += upRate);
-                    
-                    Mathf.Round(Enemies[1].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[2].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[3].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
+               spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[0] += upRate;
+                spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[1] -= dividedRate;
+                spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[2] -= dividedRate;
+                spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[3] -= dividedRate;
                     return;
                 }
-            // more slow enemies
+//easy
             case 2:
                 {
-                    Mathf.Round(Enemies[0].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[1].GetComponent<Enemy>().chanceOfSpawning += upRate);
-                    Mathf.Round(Enemies[2].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[3].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[0] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[1] += upRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[2] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[3] -= dividedRate);
                     return;
                 }
-            // more tank enemies
+//medium
             case 3:
                 {
-                    Mathf.Round(Enemies[0].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[1].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[2].GetComponent<Enemy>().chanceOfSpawning += upRate);
-                    Mathf.Round(Enemies[3].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
+
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[0] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[1] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[2] += upRate);
+                   Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[3] -= dividedRate);
                     return;
                 }
-            // more faster enemies.
+            // pain
             case 4:
                 {
-                    Mathf.Round(Enemies[0].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[1].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[2].GetComponent<Enemy>().chanceOfSpawning -= dividedRate);
-                    Mathf.Round(Enemies[3].GetComponent<Enemy>().chanceOfSpawning += upRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[0] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[1] -= dividedRate);
+                     Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[2] -= dividedRate);
+                    Mathf.Round(spawnChanceGO.GetComponent<SpawnChanceHolder>().SpawnChances[3] += upRate);
                     return;
                 }
 

@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentHP", 100);
         Application.LoadLevel(Application.loadedLevel);
+       
 
     }
 }

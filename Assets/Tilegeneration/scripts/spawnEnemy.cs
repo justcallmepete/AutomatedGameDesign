@@ -4,25 +4,59 @@ using UnityEngine;
 
 public class spawnEnemy : MonoBehaviour {
 
-    public GameObject[] enemiesToSpawn;
+    //public GameObject[] enemiesToSpawn;
     GameObject manager;
 
-    int maxEnemies;
+    public List<GameObject> Baby = new List<GameObject>();
+    public List<GameObject> Easy = new List<GameObject>();
+    public List<GameObject> Medium = new List<GameObject>();
+    public List<GameObject> Pain = new List<GameObject>();
+    
+    int maxEnemies; 
     int difficulty;
 
 
     private void Start() {
-        manager = GameObject.FindGameObjectWithTag("manager");
+
+        
+   /*      manager = GameObject.FindGameObjectWithTag("manager");
         float spawnrate = GetSpawnRate((int)transform.parent.position.y);
         if (Random.value < spawnrate && difficulty < maxEnemies) {
             int rand = Random.Range(0, enemiesToSpawn.Length);
             GameObject instance = Instantiate(enemiesToSpawn[rand], transform.position, Quaternion.identity);
             instance.transform.parent = transform;
-            UpdateEnemyCounter(maxEnemies);
+            UpdateEnemyCounter(maxEnemies); */
+        }
+    
+    public void spawnNewEnemy(EnemyDiff diff, Transform spawnPoint){
+        switch (diff){
+            case EnemyDiff.Baby:{
+                int rnd = Random.Range(0,Baby.Count);
+                GameObject enemy = Instantiate(Baby[rnd], spawnPoint.transform.position, Quaternion.identity);
+                break;
+            }
+            case EnemyDiff.Easy:{
+                int rnd = Random.Range(0,Easy.Count);
+                GameObject enemy = Instantiate(Easy[rnd], spawnPoint.transform.position,Quaternion.identity);
+                break;
+            }
+            case EnemyDiff.Medium:{
+                int rnd = Random.Range(0,Medium.Count);
+                GameObject enemy = Instantiate(Medium[rnd], spawnPoint.transform.position,Quaternion.identity);
+                break;
+            }
+            case EnemyDiff.Pain:{
+                int rnd = Random.Range(0,Pain.Count);
+                GameObject enemy = Instantiate(Pain[rnd], spawnPoint.transform.position,Quaternion.identity);
+                break;
+            }
+            
         }
     }
 
-    private float GetSpawnRate(int roomHeight) {
+}
+    
+ /*    private float GetSpawnRate(int roomHeight) {
         switch (roomHeight) {
             case 15:
                 maxEnemies = 3;
@@ -44,9 +78,9 @@ public class spawnEnemy : MonoBehaviour {
                 maxEnemies = 0;
                 return 0;
         }
-    }
+    } */
 
-    private void UpdateEnemyCounter(int maxEnemies) {
+    /* private void UpdateEnemyCounter(int maxEnemies) {
         switch (maxEnemies) {
             case 2:
                 manager.GetComponent<Manager>().easyEnemies++; ;
@@ -65,3 +99,4 @@ public class spawnEnemy : MonoBehaviour {
         }
     }
 }
+ */

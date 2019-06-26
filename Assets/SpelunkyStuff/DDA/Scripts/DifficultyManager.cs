@@ -27,7 +27,7 @@ public class DifficultyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-                text = GameObject.Find("Time").GetComponent<Text>();
+        text = GameObject.Find("Time").GetComponent<Text>();
 
         if(text != null){
         DifficultyTimer(text); 
