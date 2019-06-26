@@ -12,7 +12,7 @@ public class ChunkGenerator : MonoBehaviour {
 	public bool spawnTopEntrance;
 
 	public List<GameObject> entrances = new List<GameObject>(); // 0,1 left - 2,3 right - 4,5 top - 6,7 bot
-
+	public List<GameObject> chunkSpawnPoints = new List<GameObject>();
 	public List<GameObject> roomChunks = new List<GameObject>();
 	public List<GameObject> items = new List<GameObject>();
 
@@ -54,5 +54,18 @@ public class ChunkGenerator : MonoBehaviour {
 
 	public void SpawnChunks(){
 		// fill the room with all the random types of chunks
+		GameObject tempChunk = null;
+		foreach (var item in chunkSpawnPoints)
+		{
+			int chunkNumber = Random.Range(0, roomChunks.Count);
+			if(roomChunks.Count > 0){
+			tempChunk = Instantiate(roomChunks[chunkNumber], item.transform);
+			roomChunks.Remove(roomChunks[chunkNumber]);
+			}
+		}
+	}
+
+	public void SpawnItems(){
+		// chance of spawning items in level??
 	}
 }
