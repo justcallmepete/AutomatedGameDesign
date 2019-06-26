@@ -8,12 +8,15 @@ public class LevelManager : MonoBehaviour {
     public EnemySpawner spawn;
     public DifficultyManager difman;
     public GameObject player;
-
+ private void Start() {
+}
 
   
 	
 	// Update is called once per frame
 	void Update () {
+            player = GameObject.FindGameObjectWithTag("Player");
+
         if (Input.GetKey(KeyCode.R))
         {
             GenerateNewLevel();
