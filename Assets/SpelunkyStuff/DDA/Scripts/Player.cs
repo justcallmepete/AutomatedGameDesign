@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     int layerMask;
     int attackdamage = 1;
     public Text playerhptex;
+    public GameObject bomb;
+
+    public bool pauseBomb;
     void Start()
     {   //cam= Camera.main;
         layerMask =~ LayerMask.GetMask("player");
@@ -42,6 +45,11 @@ public class Player : MonoBehaviour
         playerhptex.text = currentHp.ToString();
         if(currentHp <=0){
             GameObject.Find("LevelManager").GetComponent<LevelManager>().Reset();
+        }
+        if (Input.GetKey(KeyCode.Space) && !pauseBomb)
+        {
+            Instantiate(bomb,gameObject.transform.position,Quaternion.identity);
+            pauseBomb = true;
         }
     }
 

@@ -26,6 +26,7 @@ public class BombScript : MonoBehaviour
     IEnumerator explode()
     {
         yield return new WaitForSeconds(timer);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().pauseBomb = false;
         Destroy(gameObject);
         GameObject o = Instantiate(expl);
         o.transform.position = gameObject.transform.position;
