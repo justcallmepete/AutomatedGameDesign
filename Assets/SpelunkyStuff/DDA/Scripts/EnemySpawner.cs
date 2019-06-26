@@ -25,9 +25,16 @@ public class EnemySpawner : MonoBehaviour
     float ahold;
     float upRate = 5f;
     float downRate = 5f;
-   
-    void Start()
-    {
+
+    private void OnEnable() {
+        SpelunkyLevelGen.doneGenerating += firstSpawn;
+    }
+
+    private void OnDisable() {
+          SpelunkyLevelGen.doneGenerating -= firstSpawn;
+    }
+
+    void firstSpawn(){
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         maxEnemy = PlayerPrefs.GetInt("MaxEnemy");
         if(maxEnemy == 0)
@@ -43,7 +50,6 @@ public class EnemySpawner : MonoBehaviour
         }
         SpawnEnemy();
     }
-   
     void SpawnEnemy()
     {
         int i = 0;
@@ -72,7 +78,6 @@ public class EnemySpawner : MonoBehaviour
         if (a < percentage[0])
         {
             enemyspawnerScript.spawnNewEnemy(EnemyDiff.Baby,pos);
-            //Instantiate(Enemies[0], pos.position, Quaternion.identity);
            // Debug.Log("The enemy chance is 0");
         }
         else if (a < percentage[1])

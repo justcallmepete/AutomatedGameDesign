@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpelunkyLevelGen : MonoBehaviour {
-
+    public delegate void Ongenerating();
+    public static event Ongenerating doneGenerating;
     public float waitTime = 1f;
     public RoomTypeManager roomTypeManager;
     public List<GameObject> RoomPositions = new List<GameObject>(); // maybe make room class?
@@ -28,7 +29,8 @@ public class SpelunkyLevelGen : MonoBehaviour {
     private bool isTesting = true;
     public int lastGeneratedRoomNumber;
 
-    public GameObject spawnObject;
+public GameObject spawnObject;
+
 public GameObject player;
     private void Start() {
         for(int i = 0; i < 4; i++){
@@ -382,7 +384,7 @@ public GameObject player;
     }
     
     private void SpawnPlayer(GameObject po){
-       Instantiate(po, ActualRooms[0].roomTransform.position,Quaternion.identity);
+//       Instantiate(po, ActualRooms[0].roomTransform.position,Quaternion.identity);
     }
 
     IEnumerator CreateACoolDungeon(){
@@ -406,6 +408,7 @@ public GameObject player;
         yield return new WaitForSeconds(waitTime);
         //fill level with enemies
         //ToDo: BILAL ADD YOUR ENEMY SPAWN STUFF HERE POR FAVOR
+        doneGenerating.Invoke();
         yield return new WaitForSeconds(waitTime);
         //start with player in start room
     }
