@@ -11,6 +11,8 @@ public class RoomTypeManager : MonoBehaviour {
 	public List<GameObject> dropThroughRooms = new List<GameObject>();
 	public List<GameObject> nonCriticalRooms = new List<GameObject>();
 
+	int shopChanceint = 0;
+
 	public GameObject GetRoom(TypeOfRoom type){
 		switch(type){
 			case TypeOfRoom.Start:{
@@ -33,8 +35,13 @@ public class RoomTypeManager : MonoBehaviour {
 				return endRoom;
 			}
 			case TypeOfRoom.NonCrit:{
-				int randomNumber = Random.Range(0, nonCriticalRooms.Count-1);
+				int randomNumber = Random.Range(shopChanceint, nonCriticalRooms.Count-1);
+				if (randomNumber == 0){
+					shopChanceint = 1;
+					return nonCriticalRooms[0];
+				}else {
 				return nonCriticalRooms[randomNumber];
+				}
 			}		
 		}
 		return null;
