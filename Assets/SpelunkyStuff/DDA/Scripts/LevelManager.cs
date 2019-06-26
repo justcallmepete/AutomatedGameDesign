@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace DDA
-{
+
 public class LevelManager : MonoBehaviour {
 
     public EnemySpawner spawn;
     public DifficultyManager difman;
     public GameObject player;
- private void Start() {
+    private void Start() {
 }
 
   
@@ -27,7 +26,7 @@ public class LevelManager : MonoBehaviour {
         }
 
     }
-    void GenerateNewLevel()
+    public void GenerateNewLevel()
     {
         difman.changeSpawnChancesOfEnemy();
 
@@ -42,7 +41,7 @@ public class LevelManager : MonoBehaviour {
         Application.LoadLevel(Application.loadedLevel);
 
     }
-    void Reset()
+    public void Reset()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentHP", 100);
@@ -50,5 +49,4 @@ public class LevelManager : MonoBehaviour {
        
 
     }
-}
 }

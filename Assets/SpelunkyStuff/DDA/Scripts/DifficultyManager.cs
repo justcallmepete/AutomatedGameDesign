@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace DDA
-{
+
     
 
 public class DifficultyManager : MonoBehaviour
@@ -103,5 +102,4 @@ public class DifficultyManager : MonoBehaviour
     }
 
 
-}
 }
