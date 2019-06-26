@@ -7,20 +7,27 @@ public class ItemManager : MonoBehaviour {
 
 	public List<GameObject> itemPrefabs = new List<GameObject>();
 	public int chanceOfSpawning = 75;
+	public List<GameObject> itemspawnpoints = new List<GameObject>();
 
-	private void OnEnable() {
+	void OnEnable() {
 		SpelunkyLevelGen.doneGenerating += Placeitems;
 	}
 
+	void OnDisable() {
+		SpelunkyLevelGen.doneGenerating -= Placeitems;
+	}
+
+	
+
 	void Placeitems(){
-		List<GameObject> itemspawnpoints = new List<GameObject>();
 		var tt = GameObject.FindGameObjectsWithTag("Item");
 		itemspawnpoints = tt.OfType<GameObject>().ToList();
 		System.Random rnd = new System.Random();
 		foreach(var item in itemspawnpoints){
 			int value = rnd.Next(0,100);
 			if(chanceOfSpawning > value){
-				Debug.Log("Spawning item: " + itemPrefabs[rnd.Next(0,itemPrefabs.Count)]);
+				//Debug.Log("Spawning item: " + itemPrefabs[rnd.Next(0,itemPrefabs.Count)]);
+				GameObject lmao = Instantiate(itemPrefabs[rnd.Next(0,itemPrefabs.Count)], item.transform);
 				chanceOfSpawning -= rnd.Next(5,20);
 			} else {
 				chanceOfSpawning += rnd.Next(1,8);
