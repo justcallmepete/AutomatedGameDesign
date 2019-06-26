@@ -350,17 +350,31 @@ public GameObject player;
                  prefab = roomTypeManager.GetRoom(item.roomType);
                  Debug.Log("Getting roomtype: "+ item.roomType);
                GameObject spawnedThing = Instantiate(prefab, item.roomTransform);
+                spawnedThing.GetComponent<ChunkGenerator>().roomType = item.roomType;
                 spawnedRooms.Add(spawnedThing);
             } 
     }
 
     private void GenerateRandomChunksPerRoom(){
+        System.Random rnd = new System.Random();
         for(int i = 0; i < ActualRooms.Count; i++){
+            int regChance1 = rnd.Next(0,100);
+             int regChance2 = rnd.Next(0,100);
+              int regChance3 = rnd.Next(0,100);
+               int regChance4 = rnd.Next(0,100);
+            int nonCritChance1 = rnd.Next(0,100);
+            int nonCritChance2 = rnd.Next(0,100);
+            int nonCritChance3 = rnd.Next(0,100);
+            int nonCritChance4 = rnd.Next(0,100);
             ChunkGenerator room = spawnedRooms[i].GetComponent<ChunkGenerator>();
          //   Debug.Log("booleans are: " +ActualRooms[i].leftSide+ActualRooms[i].rightSide+ActualRooms[i].upSide+ActualRooms[i].downSide);
             room.setEntrances(ActualRooms[i].upSide, ActualRooms[i].downSide, ActualRooms[i].rightSide, ActualRooms[i].leftSide);
            // room.spawnBottomEntrance = true;
-            room.SpawnEntrances();
+           if(room.roomType == TypeOfRoom.NonCrit){
+               room.SpawnNonCritEntrances(nonCritChance1, nonCritChance2, nonCritChance3, nonCritChance4);
+           } else {
+            room.SpawnEntrances(regChance1, regChance2, regChance3, regChance4);
+           }
             room.SpawnChunks();
         }
 
