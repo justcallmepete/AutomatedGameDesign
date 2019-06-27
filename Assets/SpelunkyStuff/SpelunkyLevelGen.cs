@@ -58,18 +58,6 @@ public GameObject player;
 
     }
 
-    void Update(){
-        /*
-        if(isGenerating){
-            GenerateNextPart();
-        } else {
-            if (isTesting){
-                DecideOnRoomType();
-            }
-        }
-        */
-    }
-
     private bool isMoveSafe(int x, int y){ // if move is within bounds and room is not taken
   /*   return ( x >= 0 && x <= 4 && y >= 0 && 
              y <= 4 && possibleRooms[x,y] == -1);  */
@@ -104,8 +92,7 @@ public GameObject player;
     }
 
     private void GenerateNextPart(){
-        moveDir = Random.Range(1, 6); // 0 under, 1, left, 2 right
-        //moveDir = 0;
+        moveDir = Random.Range(1, 5);
 
         switch(moveDir){
             case 1:{
@@ -113,7 +100,7 @@ public GameObject player;
                 break;
             }
             case 2:{
-                MoveDown();
+                MoveLeft();
                  
                 break;
             } 
@@ -122,17 +109,13 @@ public GameObject player;
                 break;
             }
             case 4:{
-                MoveLeft();
+                MoveRight();
                 break;
             }
             case 5:{
                 MoveRight();
                 break;
-            }
-            case 6:{
-                MoveRight();
-                break;
-            }          
+            }       
         }
     }
 
